@@ -1,0 +1,43 @@
+{extend name="Public/index"/}
+{block name="title"}{$category.cname}|上海麦西西后台管理系统{/block}
+{block name="header"}{$category.cname}{/block}
+{block name="nav"}<a href="#" class="current">{$category.cname}</a>{/block}
+{block name="content"}
+       <div class="container-fluid">
+			<div class="row-fluid">
+                
+				<div class="span8">
+                    {eq name="count" value="0"}
+                    <div class="span12">
+                        <a href="{:url('admin/intro/add',['cid'=>$category['cid']])}" class="btn btn-primary">添加{$category.cname}</a>
+                    </div>
+                    {else/}
+                    <div class="span12">
+                        <a href="{:url('admin/intro/update',['cid'=>$category['cid']])}" class="btn btn-primary">修改{$category.cname}</a>
+                    </div>
+                    {/eq}
+                    <div class="span12">
+                        <br/>
+                    </div>
+					<div class="widget-box">
+						<div class="widget-title">
+							<span class="icon">
+								<i class="icon-th"></i>
+							</span>
+							<h5>{$category.cname}</h5>
+						</div>
+						<div class="widget-content nopadding">
+
+                            {if condition="$list.content eq ''"}
+                                <h1 style="text-align: center;">暂无数据</h1>
+                            {else /} 
+                                {$list.content}		
+                            {/if}
+										
+						</div>
+					</div>
+					
+				</div>
+			</div>
+      </div>
+{/block}

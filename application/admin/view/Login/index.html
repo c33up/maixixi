@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>管理员登录|上海麦西西后台管理系统</title>
+		<meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {css href="__admin__/css/bootstrap.min.css"}
+        {css href="__admin__/css/bootstrap-responsive.min.css"}
+        {css href="__admin__/css/unicorn.login.css"}
+    </head>
+    <body>
+        <div id="logo">
+           <h3>上海麦西西后台管理系统</h3>
+        </div>
+        <div id="loginbox"> 
+            <form id="loginform" class="form-vertical" action="{:url('admin/Login/login')}" method="post">
+                <p></p>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on"><i class="icon-user"></i></span><input type="text" name="username" placeholder="用户名" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="input-prepend">
+                            <span class="add-on"><i class="icon-lock"></i></span><input type="password" name="password" placeholder="密码" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <span class="pull-right"><input type="submit" class="btn btn-inverse" value="登录" /></span>
+                </div>
+                
+            </form>           
+        </div>
+
+        {js href="__admin__/js/jquery.min.js"/}
+        {js href="__admin__/js/unicorn.login.js"/}
+    </body>
+</html>

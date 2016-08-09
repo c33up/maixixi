@@ -1,0 +1,65 @@
+{extend name="Public/index"/}
+{block name="title"}添加联系方式|上海麦西西后台管理系统{/block}
+ {block name="css"}
+ {css href="__admin__/css/uniform.css"}
+ {css href="__admin__/css/select2.css"}
+{/block}  
+{block name="header"}添加联系方式{/block}
+{block name="nav"}<a href="{:url('admin/contact/index')}"  class="tip-bottom">联系我们</a><a href="#" class="current">添加联系方式</a>{/block}
+{block name="content"}
+<div class="container">
+	<div class="row-fluid">
+		<div class="span8">
+			<div class="widget-box">
+				<div class="widget-title">
+					<span class="icon">
+						<i class="icon-pencil"></i>
+					</span>
+					<h5>添加联系方式</h5>
+				</div>
+				<div class="widget-content nopadding">
+					<form class="form-horizontal" method="post" action="{:url('admin/contact/update')}" name="password_validate" id="password_validate" novalidate="novalidate">
+							<div class="control-group">
+								<label class="control-label">地址</label>
+								<div class="controls">
+									<input type="text" name="address" value="{$list.address}"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">电话</label>
+								<div class="controls">
+									<input type="text" name="telphone" value="{$list.telphone}"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">传真</label>
+								<div class="controls">
+									<input type="text" name="fax" value="{$list.fax}"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">email</label>
+								<div class="controls">
+									<input type="text" name="email" value="{$list.email}"/>
+								</div>
+							</div>
+						<div class="form-actions">
+								<input  class="btn btn-primary" type="reset" value="重置" />
+								<input  class="btn btn-primary" type="submit" value="提交" />				
+						</div>
+								
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{/block}
+      {block name="js"}
+         {js href="__admin__/js/jquery.uniform.js"/}
+         {js href="__admin__/js/select2.min.js"/}
+         {js href="__admin__/js/jquery.validate.js"/}
+         {js href="__admin__/js/unicorn.form_validation.js"/}
+      {/block}

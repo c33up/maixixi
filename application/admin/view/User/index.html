@@ -1,0 +1,58 @@
+{extend name="Public/index"/}
+{block name="title"}用户管理|上海麦西西后台管理系统{/block}
+{block name="header"}用户管理{/block}
+{block name="nav"}<a href="#" class="current">用户管理</a>{/block}
+{block name="content"}
+       <div class="container-fluid">
+			<div class="row-fluid">
+                
+				<div class="span8">
+                    <div class="span12">
+                        <a href="{:url('admin/User/add')}" class="btn btn-primary">添加用户</a>
+                    </div>
+                    <div class="span12">
+                        <br/>
+                    </div>
+					<div class="widget-box">
+						<div class="widget-title">
+							<span class="icon">
+								<i class="icon-th"></i>
+							</span>
+							<h5>用户列表</h5>
+						</div>
+						<div class="widget-content nopadding">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>用户名</th>										
+                                        <th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    {volist name="list" id="vo"}
+									<tr>
+										<td>{$vo.id}</td>
+										<td width="40%">{$vo.username}</td>
+                                        {eq name="vo.id" value="1"}
+                                        <td width="40%"><a href="{:url('admin/User/update',['id'=>$vo['id']])}" class="btn btn-primary">修改密码</a></td>
+                                        {else/}  
+                                            {eq name="vo.username" value="$Think.session.username"}                                                          <td width="40%"><a href="{:url('admin/User/update',['id'=>$vo['id']])}" class="btn btn-primary">修改密码</a></td>
+                                            {else/}  
+                                                <td width="20%">
+                                                     <a href="{:url('admin/User/update',array('id'=>$vo['id']))}" class="btn btn-primary">修改密码</a>
+                                                     <a href="{:url('admin/User/delect',['id'=>$vo['id']])}" class="btn btn-primary">直接删除用户</a>
+                                                 </td>
+                                            {/eq}
+                                        {/eq}
+									</tr>
+				                    {/volist}
+								</tbody>
+							</table>							
+						</div>
+					</div>
+					
+				</div>
+			</div>
+       </div>
+{/block}

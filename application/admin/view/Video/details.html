@@ -1,0 +1,49 @@
+{extend name="Public/index"/}
+{block name="title"}{$category.cname}详情|上海麦西西后台管理系统{/block} 
+{block name="header"}{$category.cname}详情{/block}
+{block name="nav"}<a href="{:url('video/index',['cid'=>$category['cid']])}"  class="tip-bottom">{$category.cname}管理</a><a href="#" class="current">{$category.cname}详情</a>{/block}
+{block name="content"}
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			 <div class="span12">										  
+						<br/>									  	        
+             </div> 
+				
+			<div class="widget-content nopadding">
+                <div class="span12">
+                    <a class="btn btn-primary" title="返回" href="{:url('video/index',['cid'=>$category['cid']])}">返回</a>
+                    <a class="btn btn-primary" title="修改" href="{:url('video/update',['cid'=>$category['cid'],'id'=>$list['id']])}">修改</a>
+					<a class="btn btn-primary" title="删除" href="{:url('video/delect',['cid'=>$category['cid'],'id'=>$list['id']])}">删除</a>
+                </div>
+                <div class="span12">										  
+				    <h2>标题：{$list.title}</h2>
+                    {eq name="$list['ishome']" value="是"}
+                        <h4>首页显示</h4>
+                    {/eq}	
+                     <h4>{$list.createDate}</h4>									  	        
+                </div>
+                <div class="span12">										  
+					<hr/>									  	        
+                </div>  
+              
+				<div class="span12">
+                     {eq name="$list['cid']" value="31"}										  
+						{$list.vidurl}
+                     {else/}
+                      <video width="840" height="680" controls>
+                          <source src="__vidurl__/{$list.vidurl}" type="video/mp4"/>
+                          <source src="__vidurl__/{$list.vidurl}" type="video/wmv"/>
+                          <source src="__vidurl__/{$list.vidurl}" type="video/avi"/>
+                      </video>
+                     {/eq}
+                </div>
+                 <div class="span8">										  
+					{$list.intro}						  	        
+                </div>                              
+			</div>
+		</div>
+	</div>
+</div>
+ 
+{/block}

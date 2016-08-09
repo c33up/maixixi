@@ -1,0 +1,60 @@
+{extend name="Public/index"/}
+{block name="title"}联系我们|上海麦西西后台管理系统{/block}
+{block name="header"}联系我们{/block}
+{block name="nav"}<a href="#" class="current">联系我们</a>{/block}
+{block name="content"}
+       <div class="container-fluid">
+			<div class="row-fluid">
+                
+				<div class="span8">
+                     {eq name="count" value="0"}
+                    <div class="span12">
+                        <a href="{:url('admin/contact/add')}" class="btn btn-primary">添加联系方式</a>
+                    </div>
+                    {else/}
+                    <div class="span12">
+                        <a href="{:url('admin/contact/update')}" class="btn btn-primary">修改联系方式</a>
+                    </div>
+                    {/eq}
+                    <div class="span12">
+                        <br/>
+                    </div>
+					<div class="widget-box">
+						<div class="widget-title">
+							<span class="icon">
+								<i class="icon-th"></i>
+							</span>
+							<h5>联系列表</h5>
+						</div>
+						<div class="widget-content nopadding">
+							<table class="table table-bordered table-striped">
+								<tbody>
+                                {volist name="list" id="vo" empty="$empty"}
+                                  <tr>
+                                      <td width="10%">地址：</td>
+                                      <td>{$vo.address}</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="10%">电话：</td>
+                                      <td>{$vo.telphone}</td>
+                                  </tr>
+                                   <tr>
+                                      <td width="10%">传真：</td>
+                                      <td>{$vo.fax}</td>
+                                  </tr>
+                                 <tr>
+                                      <td >邮箱：</td>
+                                      <td>{$vo.email}</td>
+                                  </tr>
+                                {/volist}
+								</tbody>
+							</table>							
+						</div>
+					</div>
+					
+                    
+                   
+				</div>
+			</div>
+       </div>
+{/block}

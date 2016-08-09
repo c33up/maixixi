@@ -1,0 +1,49 @@
+{extend name="Public/index"/}
+{block name="title"}视频搜索|上海麦西西后台管理系统{/block}
+{block name="header"}视频搜索{/block}
+{block name="nav"}<a href="#" class="current">视频搜索</a>{/block}
+{block name="content"}
+    	<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+                        <div class="span12">
+                            
+                            <div class="pull-right" id="search-content">
+                            <form action="{:url('video/search')}" method="get">
+          
+			                    <input type="text" name="key" placeholder="视频搜索..." />
+                                <button type="submit" class="tip-right"><i class="icon-search icon-white"></i></button>
+                            </form>
+		                </div>
+                        </div>
+                         <br/>
+						<div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-picture"></i>
+								</span>
+								<h5>视频搜索结果</h5>
+							</div>
+							<div class="widget-content">
+								<ul class="thumbnails">
+                                    {volist name="list" id="vo" empty="$empty"}
+     
+                                             <li class="span2">
+                                 
+										            <a href="{:url('video/details',['cid'=>$vo['cid'],'id'=>$vo['id']])}" class="thumbnail">
+											            <img src="__vidurl__/{$vo.imgurl}" alt="{$vo.title}" class="imgsize200"/>
+										            </a>
+										            <div class="actions">
+											            <a title="修改" href="{:url('video/update',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><i class="icon-pencil icon-white"></i></a>
+											            <a title="删除" href="{:url('video/delect',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><i class="icon-remove icon-white"></i></a>
+										            </div>
+									            </li>
+                                    {/volist}
+								</ul>
+							</div>
+						</div>
+      
+					</div>
+				</div>
+            </div>
+{/block}

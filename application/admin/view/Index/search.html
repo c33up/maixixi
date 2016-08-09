@@ -1,0 +1,53 @@
+{extend name="Public/index"/}
+{block name="title"}文章搜索结果|上海麦西西后台管理系统{/block}
+{block name="header"}文章搜索结果{/block}
+{block name="nav"}<a href="#" class="current">文章搜索结果</a>{/block}
+{block name="content"}
+       <div class="container-fluid">
+			<div class="row-fluid">
+                
+				<div class="span10">
+
+					<div class="widget-box">
+						<div class="widget-title">
+							<span class="icon">
+								<i class="icon-th"></i>
+							</span>
+							<h5>文章搜索结果</h5>
+						</div>
+						<div class="widget-content nopadding">
+<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>标题</th>										
+                                        <th>封面图片</th>
+                                        <th>放到首页</th>
+                                        <th>操作</th>
+									</tr>
+								</thead>
+								<tbody>
+                                    {volist name="list" id="vo"}
+									<tr>
+										<td width="5%">{$vo.id}</td>
+										<td width="45%">{$vo.title}</td>
+                                        <td width="20%"><img src="__imgurl__/{$vo.imgurl}" alt="" width="100px" height="100px"/></td>
+                                        <td width="10%">{$vo.ishome}</td>
+                                        <td width="20%">
+                                           
+									        <a class="btn btn-primary" href="{:url('article/update',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><i class="icon-pencil icon-white"></i> 编辑</a>
+                                             <a class="btn btn-primary" href="{:url('article/details',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><i class="icon-eye-open"></i> 详情</a>
+									        <a class="btn btn-danger" href="{:url('article/delect',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><i class="icon-remove icon-white"></i> 删除</a>
+                                        </td>
+									</tr>
+				                    {/volist}
+								</tbody>
+							</table>
+										
+						</div>
+					</div>
+					 <div class="pull-right">{$list->render()}</div>
+				</div>
+			</div>
+      </div>
+{/block}

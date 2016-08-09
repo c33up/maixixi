@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{block name="title"}首页|上海麦西西后台管理系统{/block}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {css href="__admin__/css/bootstrap.min.css"}
+        {css href="__admin__/css/bootstrap-responsive.min.css"}
+        {css href="__admin__/css/fullcalendar.css"}
+        {css href="__admin__/css/unicorn.main.css"}
+        {css href="__admin__/css/unicorn.grey.css"}
+        {block name="css"}{/block}  
+
+    </head>
+
+	<body>
+		<!--start header logoimage-->
+		<div id="header">
+			<img src="__admin__/img/logo.jpg" alt="上海麦西西后台管理系统"/>	
+		</div>
+		<!--end header logoimage-->
+
+        <!--start header nav-->
+		<div id="search">
+            <form action="{:url('admin/index/search')}" method="get">
+			    <input type="text" name="key" placeholder="文章搜索..." />
+                <button type="submit" class="tip-right" title="搜索"><i class="icon-search icon-white"></i></button>
+            </form>
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">{$Think.session.username}</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="用户管理" href="{:url('admin/User/index')}">用户管理</a></li>
+                        <li><a class="sInbox" title="退出登录" href="{:url('admin/Login/logout')}">退出登录</a></li>
+                    </ul>
+                </li>
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">当前时间</span></a></li>
+                <li class="btn btn-inverse"><a title="退出登录" href="{:url('admin/Login/logout')}"><i class="icon icon-share-alt"></i> <span class="text">退出登录</span></a></li>
+            </ul>
+        </div>
+        <!--end header nav-->
+
+        <!--start sidebar menu-->
+		<div id="sidebar">
+			<ul>
+				<li><a href="{:url('admin/index/index')}"><i class="icon icon-home"></i> <span>首页</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>走进麦西西</span></a>
+					<ul>
+						<li><a href="{:url('admin/intro/index',['cid'=>'1'])}">品牌介绍</a></li>
+						<li><a href="{:url('admin/intro/index',['cid'=>'2'])}">品牌定位</a></li>
+						<li><a href="{:url('admin/intro/index',['cid'=>'3'])}">品牌特色</a></li>
+                        <li><a href="{:url('admin/intro/index',['cid'=>'4'])}">品牌故事</a></li>
+                        <li><a href="{:url('admin/article/index',['cid'=>'5'])}">麦西西360°揭秘</a></li>
+					</ul>
+				</li>
+				<li><a href="{:url('admin/article/index',['cid'=>'6'])}"><i class="icon icon-tint"></i> <span>新闻中心</span></a></li>
+				<li class="submenu">
+                    <a href="#"><i class="icon icon-th-list"></i> <span>穿衣那些事</span></a>
+                    <ul>
+						<li><a href="{:url('admin/article/index',['cid'=>'7'])}">童装搭配秀</a></li>
+						<li><a href="{:url('admin/article/index',['cid'=>'8'])}">童装选购技巧</a></li>
+					</ul>
+                </li>
+				<li><a href="{:url('admin/article/index',['cid'=>'9'])}"><i class="icon icon-th"></i> <span>家有小儿麦西西</span></a></li>
+				<li><a href="{:url('admin/article/index',['cid'=>'10'])}"><i class="icon icon-th-list"></i> <span>麦西西糗事</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-file"></i> <span>妈妈育儿经</span></a>
+					<ul>
+						<li><a href="{:url('admin/article/index',['cid'=>'11'])}">育儿小常识</a></li>
+						<li><a href="{:url('admin/article/index',['cid'=>'12'])}">潮物分享</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-file"></i> <span>视频集锦</span></a>
+					<ul>
+						<li><a href="{:url('admin/video/index',['cid'=>'31'])}">网路视频</a></li>
+						<li><a href="{:url('admin/video/index',['cid'=>'32'])}">本地视频</a></li>
+					</ul>
+				</li>
+                <li class="submenu">
+					<a href="#"><i class="icon icon-file"></i> <span>图片管理</span></a>
+					<ul>
+						<li><a href="{:url('admin/picture/index',['cid'=>'21'])}">轮播图片</a></li>
+						<li><a href="{:url('admin/picture/index',['cid'=>'22'])}">二维码</a></li>
+					</ul>
+				</li>
+                <li><a href="{:url('admin/contact/index')}"><i class="icon icon-th"></i> <span>联系我们</span></a></li>
+				<li class="submenu">
+					<a href="#"><i class="icon icon-file"></i> <span>其他操作</span></a>
+					<ul>
+						<li><a href="{:url('index/index/index')}">网站首页</a></li>
+						<li><a href="{:url('admin/Login/logout')}">退出登录</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!--end sidebar menu-->
+
+        <!--content-->
+		<div id="content">
+            <div id="content-header">
+				<h1>{block name="header"}欢迎你！<span>{$Think.session.username}</span>{/block}</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="{:url('admin/index/index')}" title="首页" class="tip-bottom"><i class="icon-home"></i> 首页</a>
+				{block name="nav"}<a href="{:url('admin/index/index')}" class="current">首页</a>{/block}
+			</div>
+             {block name="content"}{/block}
+            
+            <div class="row-fluid">
+					<div id="footer" class="span12">
+						2016 上海麦晨儿童用品有限公司&copy;版权所有
+					</div>
+            </div>
+		</div>
+		<!--end content-->
+
+       
+    
+        <!--js--> 
+        {js href="__admin__/js/excanvas.min.js"/}
+        {js href="__admin__/js/jquery.min.js"/}
+        {js href="__admin__/js/jquery.ui.custom.js"/}
+        {js href="__admin__/js/bootstrap.min.js"/}
+        {js href="__admin__/js/jquery.flot.min.js"/}
+        {js href="__admin__/js/jquery.flot.resize.min.js"/}
+        {js href="__admin__/js/jquery.peity.min.js"/}
+        {js href="__admin__/js/fullcalendar.min.js"/}
+        {js href="__admin__/js/unicorn.js"/}
+        {js href="__admin__/js/unicorn.dashboard.js"/}
+        {block name="js"}{/block}
+	</body>
+</html>
