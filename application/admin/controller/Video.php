@@ -7,6 +7,10 @@ use org\Upload;
 
 class Video extends Base
 {
+    public function  _initialize(){
+       $short=showShort(); 
+       $this->assign('short', $short); 
+    }
     public function index()
     {
         $data=input('');
@@ -45,7 +49,8 @@ class Video extends Base
                     return $this->error('请选择图片');
                 }
                 $cid=$data['cid'];
-                if($cid=="32"){
+                $flag=$data['flag'];
+                if($flag=='1'){
                     $data['vidurl'] = $this->uploadvid();
                     if(!$data['vidurl']){
                         return $this->error('请选择上传视频');
@@ -88,9 +93,9 @@ class Video extends Base
                     unset($data['eximgurl']);
                 }
 
-                $cid=$data['cid'];
-
-                 if($cid=="32"){
+                 $cid=$data['cid'];
+                 $flag=$data['flag'];
+                 if($flag=='1'){
                     $data['vidurl'] = $this->uploadvid();
                     if(!$data['vidurl']){
                        $data['vidurl']=$data['exvidurl'];

@@ -128,7 +128,7 @@ return [
     'view_replace_str'       => [
        '__editor__'          =>  '/public/static/ueditor',
         '__admin__'         =>  '/public/static/admin',
-        '__index__'         =>  '/public/static/index',
+        '__home__'         =>  '/public/static/index',
         '__imgurl__'         =>  '/public/uploads/images',
         '__vidurl__'         =>  '/public/uploads/videos',
     ],

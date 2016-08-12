@@ -18,7 +18,7 @@
 					<h5>添加联系方式</h5>
 				</div>
 				<div class="widget-content nopadding">
-					<form class="form-horizontal" method="post" action="{:url('admin/contact/update')}" name="password_validate" id="password_validate" novalidate="novalidate">
+					<form class="form-horizontal" method="post" action="{:url('admin/contact/update')}" enctype="multipart/form-data">
 							<div class="control-group">
 								<label class="control-label">地址</label>
 								<div class="controls">
@@ -43,6 +43,73 @@
 									<input type="text" name="email" value="{$list.email}"/>
 								</div>
 							</div>
+
+                           <div class="control-group">
+                          <label class="control-label">上传图片</label>
+                              <div class="controls">
+
+                                <input type="hidden" name="eximgurl" value="{$list.imgurl}"/>
+                                <input type="file" id="imageUpload" name="imgurl"/>
+                                <div id="eximg" class="preview" style="position: absolute; float: left;"><img src="__imgurl__/{$list.imgurl}" alt=""/></div>
+				                <div id="preview" class="preview"></div>                             
+                              </div>
+                                <style>
+                                    .preview{margin-top: 20px; position: relative; width: 450px;height: 350px;}
+                                    .preview .item{position: absolute; width: 450px; height: 350px;}
+                                    .preview img{max-width: 450px;max-height: 350px;cursor: url(../images/big.cur), auto;  box-shadow: 0px 1px 1px 1px #AAA3A3;}
+                                    .preview img:hover{box-shadow: 0px 1px 1px 2px #83ABD2;}
+                                    .preview .big{z-index: 2;}
+                                    .preview .big img{max-width: none; max-height: none; cursor: url(../images/small.cur), auto;box-shadow: 2px 2px 10px 2px #666;}
+                                </style>
+                                 <script type="text/javascript">
+                                var Upload = (function(){
+                                    var upimg = document.getElementById('imageUpload');
+                                    var show  = document.getElementById('preview');
+                                    var eximg  = document.getElementById('eximg');
+ 
+                                    function init(){
+                                        if(!(window.FileReader && window.File && window.FileList && window.Blob)){
+                                            show.innerHTML = '您的浏览器不支持fileReader';
+                                            upimg.setAttribute('disabled', 'disabled');
+                                            return false;
+                                        }
+                                        handler();
+                                    }
+ 
+                                    function handler(){
+                                        upimg.addEventListener('change', function(e){
+                                            var files = this.files;
+                                            if(files.length){
+                                                checkFile(this.files);
+                                            }
+                                        });
+                                    }
+ 
+        
+                                    function checkFile(files){
+        	                            var file = files[0];
+        	                            var reader = new FileReader();
+        	                            // show表示<div id='show'></div>，用来展示图片预览的
+        	                            if(!/image\/\w+/.test(file.type)){
+                                            show.innerHTML = "请确保文件为图像类型";
+                                            return false;
+                                        }
+                                        // onload是异步操作
+        	                            reader.onload = function(e){
+        		                            show.innerHTML = '<img src="'+e.target.result+'" alt="img">';
+                                            if (eximg!= null){
+                                                  eximg.parentNode.removeChild(eximg);
+                                             }
+        	                            }
+        	                            reader.readAsDataURL(file);
+                                    }
+                                    return {
+                                        init : init
+                                    }
+                                })();
+                                Upload.init();
+                                </script>
+                        </div>
 						<div class="form-actions">
 								<input  class="btn btn-primary" type="reset" value="重置" />
 								<input  class="btn btn-primary" type="submit" value="提交" />				

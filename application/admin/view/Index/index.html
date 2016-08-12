@@ -1,157 +1,19 @@
 {extend name="Public/index"/}
 
 {block name="content"}
-		<div class="container-fluid">
-			<div class="row-fluid">
+<div class="container-fluid">
+	    <div class="row-fluid">
  
-					<div class="span6 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>走进麦西西</h3>				
+            <div class="span6">			
 						<ul class="quick-actions">
+                             {volist name="short" id="vo"}
                             <li>
-								<a href="{:url('admin/intro/index',['cid'=>'1'])}">									
-									品牌介绍
+								<a href="{:url($vo['link'],['cid'=>$vo['cid']])}">								
+									{$vo.cname}
 								</a>
 							</li>
-                            <li>
-								<a href="{:url('admin/intro/index',['cid'=>'2'])}">									
-									品牌定位
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('admin/intro/index',['cid'=>'3'])}">									
-									品牌特色
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('admin/intro/index',['cid'=>'4'])}">	
-									品牌故事
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'5'])}">
-									麦西西360°揭秘
-								</a>
-							</li>
-						</ul>
-					</div>	
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>新闻中心</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'6'])}">									
-									新闻中心
-								</a>
-							</li>
-						</ul>
-					</div>	
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>穿衣那些事</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'7'])}">									
-									童装搭配秀
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'8'])}">									
-									童装选购技巧
-								</a>
-							</li>
-						</ul>
-					</div>
-                    <div class="span12">
-                    <hr/>
-                    </div>
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>家有小儿麦西西</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'9'])}">									
-									家有小儿麦西西
-								</a>
-							</li>
-						</ul>
-					</div>	
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>麦西西糗事</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'10'])}">									
-									麦西西糗事
-								</a>
-							</li>
-						</ul>
-					</div>	
-                 
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>妈妈育儿经</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'11'])}">									
-									育儿小常识
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('admin/article/index',['cid'=>'12'])}">									
-									潮物分享
-								</a>
-							</li>
-						</ul>
-					</div>
-
-                    <div class="span12 center">
-                    <hr/>
-                    </div>
-
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>视频集锦</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('video/index',['cid'=>'31'])}">							
-									网路视频
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('video/index',['cid'=>'32'])}">							
-									本地视频
-								</a>
-							</li>
-						</ul>
-					</div>
-
-                    <div class="span3 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>图片管理</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/picture/index',['cid'=>'21'])}">						
-									轮播图片
-								</a>
-							</li>
-                            <li>
-								<a href="{:url('admin/picture/index',['cid'=>'22'])}">						
-									二维码
-								</a>
-							</li>
-						</ul>
-					</div>
-
-                    <div class="span4 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>联系我们</h3>				
-						<ul class="quick-actions">
-                            <li>
-								<a href="{:url('admin/contact/index')}">									
-									联系我们
-								</a>
-							</li>
-						</ul>
-					</div>
-                    <div class="span12">
-                    <hr/>
-                    </div>
-
-                    <div class="span4 center" style="text-align: center;border: 1px solid #000;">	
-                        <h3>其他操作</h3>				
-						<ul class="quick-actions">
+                            {/volist}
+						    
                             <li>
 								<a href="{:url('index/index/index')}">									
 									网站首页
@@ -164,7 +26,37 @@
 							</li>
 						</ul>
 					</div>
-	
-			</div>
-  
+	     
+
+            <div class="span6">
+            <div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-file"></i>
+								</span>
+								<h5>留言</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<ul class="recent-posts">
+                                     {volist name="list" id="vo"}
+									<li>
+									
+										<div class="article-post">
+											<span class="user-info"> {$list.NickName} {$list.createDate}</span>
+											<p>
+												{$list.content}
+											</p>
+											<span class="user-info">Tel:{$list.NickName} Email:{$list.Email}</span>
+										</div>
+									</li>
+									 {/volist}
+									<li class="viewall">
+										<a title="View all posts" class="tip-top" href="{:url('index/message')}"> +更多留言+ </a>
+									</li>
+								</ul>
+							</div>
+						</div>
+            </div>
+		</div>
+</div>
 {/block}

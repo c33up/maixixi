@@ -40,12 +40,13 @@
                         <div class="control-group">
                           <label for="normal" class="control-label">视频上传</label>
                           <div class="controls">
-                              {eq name="$category['cid']" value="31"}
+                               <input type="hidden" name="flag" value="{$list.flag}"/>
+                              {if condition="$list['flag'] == '0'"}
                                 <textarea name="vidurl" rows="5">{$list.vidurl}</textarea>
                               {else/}
                                 <input type="hidden" name="exvidurl" value="{$list.vidurl}"/>
                                 <input type="file" name="vidurl"/>
-                              {/eq}
+                              {/if}
                            </div>
                         </div>
  

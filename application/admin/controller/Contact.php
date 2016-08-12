@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 use app\admin\model\Contact as ct;
 use app\admin\controller\Base;
-use think\Db;
+use org\Upload;
 
 class Contact extends Base
 {
@@ -21,7 +21,10 @@ class Contact extends Base
     {
        if(request()->isPost()){
             $data = input('post.');
-
+            $data['imgurl'] = $this->upload();
+            if(!$data['imgurl']){
+                //return $this->error('请选择图片');
+            }
             $status = ct::insert($data);
             if($status){
                 return $this->success('添加成功',url('contact/index'));
@@ -39,6 +42,14 @@ class Contact extends Base
     {
        if(request()->isPost()){
             $data = input('post.');
+            $data['imgurl'] = $this->upload();
+            if(!$data['imgurl']){
+                $data['imgurl']=$data['eximgurl'];
+                unset($data['eximgurl']);
+            }else{
+                unset($data['eximgurl']);
+            }
+
             $status = ct::where('id','1')->update($data);
             if($status){
                 return $this->success('更新成功',url('contact/index'));
@@ -50,5 +61,32 @@ class Contact extends Base
              $this->assign('list', $list);
             return $this->fetch();
         }
+    }
+
+        public function upload(){
+        $file = request()->file('imgurl');
+        if($file){
+            $config = [
+                'maxSize'      => 20480000,
+                'exts'         => ['jpg','gif','png','jpeg'],
+                'subName'      => ['date', 'Ymd'],
+                'rootPath'     => config('uploader_dir'),
+                'savePath'     => '',
+                'driver'       => 'Local',
+            ];
+         
+            $uploader = new Upload($config);
+            $info = $uploader->upload();
+            if(!$info){
+                $this->error($uploader->getError());
+            }else{
+           
+                $image =$info['imgurl']['savepath'].$info['imgurl']['savename'];
+                return $image;
+            }
+        }else{
+            return FALSE;
+        }
+            
     }
 }

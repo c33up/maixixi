@@ -1,0 +1,40 @@
+{extend name="Public/index"/}
+{block name="title"}留言|上海麦西西后台管理系统{/block}
+{block name="header"}留言{/block}
+{block name="nav"}<a href="#" class="current">留言</a>{/block}
+{block name="content"}
+<div class="container-fluid">
+	    <div class="row-fluid">
+
+            <div class="span12">
+            <div class="widget-box">
+							<div class="widget-title">
+								<span class="icon">
+									<i class="icon-file"></i>
+								</span>
+								<h5>留言</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<ul class="recent-posts">
+                                     {volist name="list" id="vo"}
+									<li>
+									
+										<div class="article-post">
+											<span class="user-info"> {$list.NickName} {$list.createDate}</span>
+											<p>
+												{$list.content}
+											</p>
+											<span class="user-info">Tel:{$list.NickName} Email:{$list.Email}</span>
+										</div>
+									</li>
+									 {/volist}
+									<li class="viewall">
+										 <div class="pull-right">{$list->render()}</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+            </div>
+		</div>
+</div>
+{/block}

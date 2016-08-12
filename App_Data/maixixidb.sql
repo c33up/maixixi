@@ -40,52 +40,25 @@ KEY cid (cid)
 DROP TABLE IF EXISTS category;
 CREATE TABLE IF NOT EXISTS category (
 cid INT,
-pid INT,
 link VARCHAR(80),
+icon VARCHAR(50),
 cname VARCHAR(50),
-PRIMARY KEY (cid),
-KEY pid (pid)
+PRIMARY KEY (cid)
 )DEFAULT CHARSET=utf8;
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES ('1','1','intro','品牌介绍');
-INSERT INTO `category` VALUES ('2','1','intro','品牌定位');
-INSERT INTO `category` VALUES ('3','1','intro','品牌特色');
-INSERT INTO `category` VALUES ('4','1','intro','品牌故事');
-INSERT INTO `category` VALUES ('5','1','article','麦西西360°揭秘');
-INSERT INTO `category` VALUES ('6','0','article','新闻中心');
-INSERT INTO `category` VALUES ('7','2','article','童装搭配秀');
-INSERT INTO `category` VALUES ('8','2','article','童装选购技巧');
-INSERT INTO `category` VALUES ('9','0','article','家有小儿麦西西');
-INSERT INTO `category` VALUES ('10','0','article','麦西西糗事');
-INSERT INTO `category` VALUES ('11','3','article','育儿小常识');
-INSERT INTO `category` VALUES ('12','3','article','潮物分享');
-INSERT INTO `category` VALUES ('21','4','picture','轮播图片');
-INSERT INTO `category` VALUES ('22','4','picture','二维码');
-INSERT INTO `category` VALUES ('31','5','video','网络视频');
-INSERT INTO `category` VALUES ('32','5','video','本地视频');
-
--- ----------------------------
--- Table structure for `sort`
--- ----------------------------
-DROP TABLE IF EXISTS sort;
-CREATE TABLE IF NOT EXISTS sort (
-pid INT,
-pname VARCHAR(50),
-PRIMARY KEY (pid),
-)DEFAULT CHARSET=utf8;
--- ----------------------------
--- Records of sort
--- ----------------------------
-INSERT INTO `sort` VALUES ('1','走进麦西西');
-INSERT INTO `sort` VALUES ('0','新闻中心');
-INSERT INTO `sort` VALUES ('2','穿衣那些事');
-INSERT INTO `sort` VALUES ('0','家有小儿麦西西');
-INSERT INTO `sort` VALUES ('0','麦西西糗事');
-INSERT INTO `sort` VALUES ('3','妈妈育儿经');
-INSERT INTO `sort` VALUES ('4','图片管理');
-INSERT INTO `sort` VALUES ('5','视频集锦');
+INSERT INTO `category` VALUES ('0' ,'index/index'  ,'icon-home','首页');
+INSERT INTO `category` VALUES ('1' ,'intro/index'  ,'icon-th'  ,'公司介绍');
+INSERT INTO `category` VALUES ('6' ,'article/index','icon-th'  ,'新闻中心');
+INSERT INTO `category` VALUES ('7' ,'article/index','icon-th'  ,'招商加盟');
+INSERT INTO `category` VALUES ('9' ,'article/index','icon-th'  ,'家有小儿麦西西');
+INSERT INTO `category` VALUES ('20','picture/index','icon-th'  ,'产品展示');
+INSERT INTO `category` VALUES ('21','picture/index','icon-th'  ,'轮播图片');
+INSERT INTO `category` VALUES ('22','picture/index','icon-th'  ,'二维码');
+INSERT INTO `category` VALUES ('23','picture/index','icon-th'  ,'店铺形象');
+INSERT INTO `category` VALUES ('31','video/index'  ,'icon-th'  ,'视频集锦');
+INSERT INTO `category` VALUES ('32','video/index'  ,'icon-th'  ,'宝贝麦西西');
 
 -- ----------------------------
 -- Table structure for `intro`
@@ -112,6 +85,7 @@ intro TEXT,
 vidurl TEXT,
 imgurl TEXT,
 createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+flag VARCHAR(50),
 ishome VARCHAR(50),
 num INT DEFAULT '0',
 cid VARCHAR(50),
@@ -143,5 +117,20 @@ address TEXT,
 fax VARCHAR(150),
 telphone VARCHAR(150),
 email VARCHAR(150),
+imgurl TEXT,
+PRIMARY KEY (id)
+)DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Table structure for `message`
+-- ----------------------------
+DROP TABLE IF EXISTS message;
+CREATE TABLE IF NOT EXISTS message (
+id INT NOT NULL AUTO_INCREMENT,
+NickName VARCHAR(150),
+Tel VARCHAR(150),
+Email VARCHAR(150),
+comment TEXT,
+createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (id)
 )DEFAULT CHARSET=utf8;

@@ -6,6 +6,12 @@ use think\Validate;
 
 class User extends Base
 {
+    public function  _initialize(){
+       $category['cid']='-1';
+       $short=showShort(); 
+       $this->assign('short', $short); 
+       $this->assign('category', $category); 
+    }
     public function index()
     {
         $list = AdminUser::order('id','asc')->select();
