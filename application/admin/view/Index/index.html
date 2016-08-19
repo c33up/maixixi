@@ -41,12 +41,12 @@
                                      {volist name="list" id="vo"}
 									<li>
 									
-										<div class="article-post">
-											<span class="user-info"> {$list.NickName} {$list.createDate}</span>
+											<div class="article-post">
+											<span class="user-info">昵称：{$vo.NickName} &nbsp Tel:{$vo.NickName}&nbsp&nbsp Email:{$vo.Email} &nbsp&nbsp 留言时间：{$vo.createDate}</span>
 											<p>
-												{$list.content}
+												{$vo.content}
 											</p>
-											<span class="user-info">Tel:{$list.NickName} Email:{$list.Email}</span>
+											
 										</div>
 									</li>
 									 {/volist}

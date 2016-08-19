@@ -90,6 +90,10 @@ class Video extends Base
                     $data['imgurl']=$data['eximgurl'];
                     unset($data['eximgurl']);
                 }else{
+                    $imgurl=ROOT_PATH . 'public/uploads/images/'.$data['eximgurl'];
+                    if(file_exists($imgurl)){
+                       unlink($imgurl); 
+                    }
                     unset($data['eximgurl']);
                 }
 
@@ -207,7 +211,14 @@ class Video extends Base
     public function delect(){
             $id=input('id');
             $cid=input('cid');
-            $status = vid::where(['id' => $id])->delete();
+            $category=Category::find($cid);;
+            $list = $category->video()->where(['id' => $id])->find();
+            $imgurl=ROOT_PATH . 'public/uploads/images/'.$list['imgurl'];
+            //dump($imgurl);
+            if(file_exists($imgurl)){
+               unlink($imgurl); 
+            }
+            $status = $category->video()->where(['id' => $id])->delete();
             if($status){
                 return $this->success('删除成功',url('video/index',['cid'=>$cid]));
             }else{

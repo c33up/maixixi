@@ -1,0 +1,36 @@
+{extend name="Public/index"/}
+{block name="title"}视频中心|上海麦晨儿童用品有限公司{/block}
+{block name="content"}
+
+<div class="container bgcolor">	
+    <div class="row">
+        <div class="col-lg-12">
+		    <div class="page-header">                
+                 <h3>{$category.cname}</h3>
+            </div>
+            <div class="col-lg-12">
+                {volist name="list" id="vo"}
+                	<div class="col-md-3">
+                        <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
+					        <div class="thumbnail">
+						        <img alt="" src="__vidurl__/{$vo.imgurl}" width="100%"/>
+						        <div class="caption">
+							        <p><strong>
+								        {$vo.title}
+							        </strong></p>
+							        <p class="intro">
+								       {$vo.intro}
+							        </p>
+						        </div>
+					        </div>
+                        </a> 
+				    </div>
+                {/volist}
+            </div>
+            <div class="pull-right">
+                {$list->render()}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

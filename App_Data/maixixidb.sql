@@ -59,6 +59,8 @@ INSERT INTO `category` VALUES ('22','picture/index','icon-th'  ,'二维码');
 INSERT INTO `category` VALUES ('23','picture/index','icon-th'  ,'店铺形象');
 INSERT INTO `category` VALUES ('31','video/index'  ,'icon-th'  ,'视频集锦');
 INSERT INTO `category` VALUES ('32','video/index'  ,'icon-th'  ,'宝贝麦西西');
+INSERT INTO `category` VALUES ('40','contact/index'  ,'icon-th'  ,'联系我们');
+
 
 -- ----------------------------
 -- Table structure for `intro`

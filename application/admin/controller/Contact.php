@@ -1,11 +1,18 @@
 <?php
 namespace app\admin\controller;
 use app\admin\model\Contact as ct;
+use app\admin\model\Category;
 use app\admin\controller\Base;
 use org\Upload;
 
 class Contact extends Base
 {
+    public function  _initialize(){
+        $category=Category::find('40');
+       $short=showShort(); 
+       $this->assign('short', $short); 
+        $this->assign('category', $category); 
+    }
     public function index()
     {
         $list=ct::select();
@@ -47,6 +54,10 @@ class Contact extends Base
                 $data['imgurl']=$data['eximgurl'];
                 unset($data['eximgurl']);
             }else{
+                $imgurl=ROOT_PATH . 'public/uploads/images/'.$data['eximgurl'];
+                if(file_exists($imgurl)){
+                    unlink($imgurl); 
+                }
                 unset($data['eximgurl']);
             }
 

@@ -1,0 +1,108 @@
+{extend name="Public/index"/}
+{block name="title"}联系我们|上海麦晨儿童用品有限公司{/block}
+{block name="css"}
+<link href="__home__/css/touchTouch.css" rel="stylesheet" />
+{/block}
+{block name="content"}
+
+<div class="container bgcolor">	
+	<div class="col-lg-12">
+		<div class="page-header">                
+             <h3>联系我们</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-6 content"> 
+                <div class="col-md-12">
+                        <div class="bottomLine">                
+                        <p>
+                        找到我们很容易!您可以通过以下方式联系我们，或在页面右侧给我们留言。
+                        </p><p>
+                        You can contact us by, or at the right side of the page message to us.
+                        </p>
+                        </div>
+                        <div class="bottomLine">       
+                        {if condition="$list['address'] neq ''"}
+                           <p>地址：<span class="text">{$list.address}</span></p>
+                        {/if}
+                        {if condition="$list['telphone'] neq ''"}
+                           <p>电话：<span class="text">{$list.telphone}</span></p>
+                        {/if}
+					    {if condition="$list['fax'] neq ''"}
+                           <p>传真：<span class="text">{$list.fax}</span></p>
+                        {/if}
+					    {if condition="$list['email'] neq ''"}
+                           <p>Email：<span class="text">{$list.email}</span></p>
+                        {/if}
+                        </div>
+                        
+					    {if condition="$list['imgurl'] neq ''"}
+                        <div class="botlinepad10 twopic"> 
+                            <a class="gal" href="__imgurl__/{$list['imgurl']}">
+                                <img src="__imgurl__/{$list['imgurl']}" alt="" width="100%"/>
+                            </a>
+                        </div>
+                        {/if} 
+			           
+                        
+                </div>
+                <div class="col-md-12">
+                {volist name="twopic" id="vo"}
+                  <div class="col-md-6 twopic">
+                    <a class="gal" href="__imgurl__/{$vo.imgurl}">
+                        <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
+				    </a>
+                  </div>
+                {/volist}
+                </div>
+            </div>
+            <div class="col-md-6 content">  
+                <div class="bottomLine">
+                <p>感谢您对知君互动的关注！为了便于我们更好的为您服务，请正确填写以下信息，我们会在24小时 内与您取得来联系，并答复您的需求! </p>
+                     <p>In order for us to better serve you,please fill in information,we will within 24 hoursAnd you have to contact, and responses to your needs!</p>
+                </div>                
+
+				<div class="contact-form">
+                    <h4>我要留言</h4>
+                    <p>电子邮件地址不会被公开。 必填项已用 <strong>*</strong> 标注 </p>
+                 
+					<form action="{:url('contact/addmeg')}" method="post">
+						<div class="form-group">
+							<label for="name">您的昵称 Your NickName<strong>*</strong></label>
+							<input type="text" class="form-control" name="NickName" placeholder="您的昵称">
+							
+						</div>
+						<div class="form-group">
+							<label for="name">联系电话 Tel  <strong>*</strong></label>
+							<input type="tel" class="form-control" name="Tel" placeholder="联系电话">
+							
+						</div>
+						<div class="form-group">
+							<label for="name">电子邮件 Email  <strong>*</strong> </label>
+							<input type="email" class="form-control" name="Email" placeholder="Email">
+							
+						</div>
+						<div class="form-group">
+							<label for="message">留言内容 Your comment</label>
+							<textarea class="form-control" rows="6" name="content" placeholder="留言内容"></textarea>
+							
+						</div>
+						<input type="submit" value="留言" class="btn btn-default">
+					</form>
+				</div>
+            </div>
+        </div>    </div>
+</div>
+{/block}
+{block name="js"}
+ <script src="__home__/js/touchTouch.jquery.js"></script>
+ <script src="__home__/js/jquery.ui.totop.js"></script>
+<script>
+        $(document).ready(function(){
+          $().UItoTop({ easingType: 'easeOutQuart' });
+        });  
+        $(function(){
+        // Initialize the gallery
+        $('.twopic a.gal').touchTouch();
+        });  
+</script>
+{/block}

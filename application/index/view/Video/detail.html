@@ -1,0 +1,25 @@
+{extend name="Public/index"/}
+{block name="title"}视频中心|上海麦晨儿童用品有限公司{/block}
+{block name="content"}
+
+<div class="container bgcolor">	
+    <div class="row">
+        <div class="col-lg-12">
+		    <div class="page-header">                
+                 <h3>{$list.title}</h3>
+            </div>
+            <div class="col-lg-12">
+               {eq name="$list.flag" value="0"}
+                    {$list.vidurl}
+                {else/}
+                    <video width="640" height="480" controls="controls">
+                      <source src="__vidurl__/{$list.vidurl}" type="video/wmv"/>
+                      <source src="__vidurl__/{$list.vidurl}" type="video/avi"/>
+                      <source src="__vidurl__/{$list.vidurl}" type="video/mp4">
+                    </video>
+                {/eq}
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

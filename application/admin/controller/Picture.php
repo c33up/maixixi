@@ -61,6 +61,10 @@ class Picture extends Base
                     $data['imgurl']=$data['eximgurl'];
                     unset($data['eximgurl']);
                 }else{
+                    $imgurl=ROOT_PATH . 'public/uploads/images/'.$data['eximgurl'];
+                    if(file_exists($imgurl)){
+                       unlink($imgurl); 
+                    }
                     unset($data['eximgurl']);
                 }
                 $id=$data['id'];
@@ -128,7 +132,15 @@ class Picture extends Base
     public function delect(){
             $id=input('id');
             $cid=input('cid');
-            $status = pict::where(['id' => $id])->delete();
+            $category=Category::find($cid);;
+            $list = $category->picture()->where(['id' => $id])->find();
+            $imgurl=ROOT_PATH . 'public/uploads/images/'.$list['imgurl'];
+            //dump($imgurl);
+            if(file_exists($imgurl)){
+               unlink($imgurl); 
+            }
+            
+            $status = $category->picture()->where(['id' => $id])->delete();
             if($status){
                 return $this->success('删除成功',url('picture/index',['cid'=>$cid]));
             }else{

@@ -3,7 +3,7 @@
 {block name="header"}留言{/block}
 {block name="nav"}<a href="#" class="current">留言</a>{/block}
 {block name="content"}
-<div class="container-fluid">
+<div class="container">
 	    <div class="row-fluid">
 
             <div class="span12">
@@ -20,18 +20,17 @@
 									<li>
 									
 										<div class="article-post">
-											<span class="user-info"> {$list.NickName} {$list.createDate}</span>
+											<span class="user-info">昵称：{$vo.NickName} &nbsp Tel:{$vo.NickName}&nbsp&nbsp Email:{$vo.Email} &nbsp&nbsp 留言时间：{$vo.createDate}</span>
 											<p>
-												{$list.content}
+												{$vo.content}
 											</p>
-											<span class="user-info">Tel:{$list.NickName} Email:{$list.Email}</span>
+											
 										</div>
 									</li>
 									 {/volist}
-									<li class="viewall">
-										 <div class="pull-right">{$list->render()}</div>
-									</li>
+									
 								</ul>
+                                <div class="pull-right">{$list->render()}</div>
 							</div>
 						</div>
             </div>

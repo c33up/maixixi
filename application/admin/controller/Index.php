@@ -38,7 +38,7 @@ class Index extends Base
 
     public function message()
     {
-        $list=Message::order('id desc')->paginate(5);  
+        $list=Message::order('id desc')->paginate(6);  
         $this->assign('list', $list); 
         return $this->fetch();
     }

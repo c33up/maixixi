@@ -61,6 +61,10 @@ class Article extends Base
             $data = input('');
             $data['imgurl']=$this->upload();
             if($data['imgurl']){
+                $imgurl=ROOT_PATH . 'public/uploads/images/'.$data['eximgurl'];
+                if(file_exists($imgurl)){
+                    unlink($imgurl); 
+                }
                 unset($data['eximgurl']);
             }else{
                 $data['imgurl']=$data['eximgurl'];
@@ -116,7 +120,14 @@ class Article extends Base
         public function delect(){
             $id=input('id');
             $cid=input('cid');
-            $status = essay::where(['id' => $id])->delete();
+            $category=Category::find($cid);;
+            $list = $category->article()->where(['id' => $id])->find();
+            $imgurl=ROOT_PATH . 'public/uploads/images/'.$list['imgurl'];
+            //dump($imgurl);
+            if(file_exists($imgurl)){
+               unlink($imgurl); 
+            }
+            $status =$category->article()->where(['id' => $id])->delete();
             if($status){
                 return $this->success('删除成功',url('article/index',['cid'=>$cid]));
             }else{

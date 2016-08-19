@@ -1,0 +1,29 @@
+{extend name="Public/index"/}
+{block name="title"}{$category.cname}|上海麦晨儿童用品有限公司{/block}
+{block name="content"}
+<div class="container bgcolor">
+	<div class="row">
+       <div class="col-md-12">
+            <div class="page-header">                
+                <h4>{$category.cname}</h4>              
+            </div>       		 
+            {volist name="list" id="vo"} 
+            <div class="col-md-12 marginbot40 baby">
+		        <div class="col-md-3">
+		            <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.intro}" width="100%"/>
+		        </div>
+		        <div class="col-md-9 ">
+			      
+                        <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><h4> {$vo.title}</h4></a>
+                        <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><p>{$vo.intro}</p></a>
+			       
+                </div>
+		    </div>
+            {/volist}
+            <div class="col-md-12 topline">        
+                <div class="pull-right">
+                    {$list->render()}
+                </div>                                       
+            </div>
+        </div>	
+	</div></div>{/block}

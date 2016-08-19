@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{block name="title"}首页{/block}</title>
+        <title>{block name="title"}麦西西|上海麦晨儿童用品有限公司{/block}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -14,7 +14,7 @@
         <link href="__home__/css/jcarousel.css" rel="stylesheet" />
         <link href="__home__/css/flexslider.css" rel="stylesheet" />
         <link href="__home__/css/style.css" rel="stylesheet" />
- 
+        {block name="css"}{/block}
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
               <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,34 +23,43 @@
     <body>
     <div id="wrapper">
 	<!-- start header -->  
+    <div class="container"> 
 	<header>
-        <div class="container"> 
-             <a href="index.html"><img src="__home__/img/logo.jpg" alt="麦西西" class="margintop10"/></a>
+             <a href="{:url('index/index')}"><img src="__home__/img/logo.jpg" alt="麦西西" class="margintop10" title="上海麦晨儿童用品有限公司"/></a>
         
         <div class="navbar navbar-default navbar-static-top">
            
                 <div class="navbar-header">
+  
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        菜单
                     </button>
                    
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="active"><a href="index.html">首页</a></li> 
-						<li><a href="about.html">公司简介</a></li>
-						<li><a href="services.html">新闻中心</a></li>
-                        <li><a href="portfolio.html">招商加盟</a></li>
-                        <li><a href="pricing.html">家有小儿麦西西</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="{:url('index/index')}">首页</a></li>
+                            <li><p>|</p></li> 
+						<li><a href="{:url('intro/index')}">公司简介</a></li>
+                            <li><p>|</p></li> 
+						<li><a href="{:url('article/index',['cid'=>'6'])}">新闻中心</a></li>
+                            <li><p>|</p></li> 
+                        <li><a href="{:url('article/index',['cid'=>'7'])}">招商加盟</a></li>
+                            <li><p>|</p></li> 
+                        <li><a href="{:url('article/index',['cid'=>'9'])}">家有小儿麦西西</a></li>
+                            <li><p>|</p></li> 
+                        <li><a href="{:url('contact/index')}">联系我们</a></li>
                     </ul>
+                     <form class="navbar-form navbar-right search" role="search" method="put" action="{:url('index/search')}">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="keywords" placeholder="请输入关键字">
+                        </div>
+                            <button type="submit" class="btn btn-default"></button>
+                      </form>
                 </div>
             </div>
-       
-        </div>
 	</header>
+    </div>
 	<!-- end header -->
     <div class="container bgcolor"> 
 	<section id="featured"> 
@@ -89,7 +98,7 @@
                             邮箱：maichen2013@sina.com
                         </p>
 						<p>
-							Copyright &copy; 2016.上海麦晨儿童用品有限公司
+							上海麦晨儿童用品有限公司 &copy; 2016.Copyright
 						</p>
 					</div>
 				</div>
@@ -112,8 +121,7 @@
         <script src="__home__/js/portfolio/setting.js"></script>
         <script src="__home__/js/jquery.flexslider.js"></script>
         <script src="__home__/js/animate.js"></script>
-        <script src="__home__/js/custom.js"></script>
-        <script src="__home__/js/owl-carousel/owl.carousel.js"></script>        <script type="text/javascript">
+        <script src="__home__/js/custom.js"></script>        {block name="js"}{/block}        <script type="text/javascript">
 				 $(window).load(function() {			
 				  $("#flexiselDemo1").flexisel({
 					visibleItems: 4,

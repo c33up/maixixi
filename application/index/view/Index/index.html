@@ -3,20 +3,21 @@
 {block name="content"}
 
 <div class="container bgcolor">	
+     <div class="row">
 	<div class="col-lg-12">
 		<div class="page-header">                
             <ul class="list-unstyled">
-                <li class="pull-right"><a href="{:url('video/index',['cid'=>'35'])}">more...</a></li>
+                <li class="pull-right"><a href="{:url('video/index',['cid'=>'32'])}">more...</a></li>
                 <li>宝贝麦西西</li>              
             </ul>
         </div>
 
         <!-- Service Blcoks -->
-        <div class="row">
+       
             {volist name="baby" id="vo"}
             <div class="col-md-6 baby">
-                <a href="#">
-                    <img class="imgheight200" src="__vidurl__/{$vo.imgurl}" alt="">   
+                <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
+                    <img src="__vidurl__/{$vo.imgurl}" alt="" width="100%"/>   
                     <h3>{$vo.title}</h3>
                     <p>{$vo.intro}</p> 
                 </a>       
@@ -32,22 +33,24 @@
         <div class="col-lg-12">
             <div class="page-header">                
                 <ul class="list-unstyled">
-                    <li class="pull-right"><a href="#">more...</a></li>
+                    <li class="pull-right"><a href="{:url('article/index',['cid'=>'6'])}">more...</a></li>
                     <li>最新动态</li>              
                 </ul>
             </div>
                 {volist name="new" id="vo"}
                 <div class="col-lg-12 marginbot30">
-            <div class="col-md-3">
-		        <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
-		    </div>
-			<div class="col-md-9 news">
-				<div>
-                    <h3>{$vo.title}</h3>
-                    <p>{$vo.intro}</p>
-				</div>
-			</div>
-            </div>
+                    <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
+                    <div class="col-md-3">
+		                <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
+		            </div>
+			        <div class="col-md-9 news">
+				        <div>
+                            <h3>{$vo.title}</h3>
+                            <p>{$vo.intro}</p>
+				        </div>
+			        </div>
+                    </a>
+                </div>
                 {/volist}
         </div>   
     </div>
@@ -55,19 +58,20 @@
 
 
 <div class="container bgcolor">	
+    <div class="row">
 	<div class="col-lg-12">
 		<div class="page-header">                
             <ul class="list-unstyled">
-                <li class="pull-right"><a href="#top">more...</a></li>
+                <li class="pull-right"><a href="{:url('video/index',['cid'=>'31'])}">more...</a></li>
                 <li>视频中心</li>              
             </ul>
         </div>
 
         <!-- Service Blcoks -->
-        <div class="row">
+        
             {volist name="video" id="vo"}  
             <div class="col-md-3 baby">
-                <a href="#">
+                <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
                     <img class="img-responsive" src="__vidurl__/{$vo.imgurl}" alt="">   
                     <h4>{$vo.title}</h4>
                     <p>{$vo.intro}</p>    
@@ -79,20 +83,21 @@
 
 
 
-<div class="container bgcolor">	
+<div class="container bgcolor">
+    <div class="row">	
 	<div class="col-lg-12">
 		<div class="page-header">                
             <ul class="list-unstyled">
-                <li class="pull-right"><a href="#top">more...</a></li>
+                <li class="pull-right"><a href="{:url('Picture/index',['cid'=>'20'])}">more...</a></li>
                 <li>产品展示</li>              
             </ul>
         </div>
 
         <!-- Service Blcoks -->
-        <div class="row">
+        
                 {volist name="product" id="vo"}
                 <div class="col-md-3 product">
-                    <a href="#">
+                    <a href="{$vo.link}">
                         <img src="__imgurl__/{$vo.imgurl}" alt="">   
                         <h4>{$vo.title}</h4>  
                     </a>
@@ -107,7 +112,7 @@
 	<div class="col-lg-12">
 		<div class="page-header">                
             <ul class="list-unstyled">
-                <li class="pull-right"><a href="#top">more...</a></li>
+                <li class="pull-right"><a href="{:url('Picture/index',['cid'=>'23'])}">more...</a></li>
                 <li>店铺形象展示</li>              
             </ul>
         </div>
@@ -118,9 +123,9 @@
             <ul id="flexiselDemo1">			
                     {volist name="product" id="vo"}
 			        <li>
-				        <div class="agileits_work_grid view view-sixth">
+				    <a href="{$vo.link}">
 					        <img src="__imgurl__/{$vo.imgurl}" alt=" " class="img-responsive" />
-				        </div>
+				     </a>
 			        </li>
                     {/volist}
 		    </ul>
