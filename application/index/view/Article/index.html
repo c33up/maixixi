@@ -5,19 +5,23 @@
 	<div class="row">
        <div class="col-md-12">
             <div class="page-header">                
-                <h4>{$category.cname}</h4>              
+                <h3>{$category.cname}</h3>              
             </div>       		 
             {volist name="list" id="vo"} 
-            <div class="col-md-12 marginbot40 baby">
-		        <div class="col-md-3">
-		            <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.intro}" width="100%"/>
+            <div class="col-md-12 marginbot40">
+            <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
+		      <div class="thumbnail-2">
+                <div class="col-md-3 imgcap">
+		            <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.intro}"/>
 		        </div>
-		        <div class="col-md-9 ">
+		         <div class="col-md-9 caption">		
 			      
-                        <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><h4> {$vo.title}</h4></a>
-                        <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}"><p>{$vo.intro}</p></a>
-			       
+                       <h3> {$vo.title}</h3>
+                       <p>{$vo.intro}</p>
+                     <p>{$vo.createDate}</p>
+			       </div>
                 </div>
+            </a>
 		    </div>
             {/volist}
             <div class="col-md-12 topline">        

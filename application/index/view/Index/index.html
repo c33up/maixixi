@@ -15,11 +15,15 @@
         <!-- Service Blcoks -->
        
             {volist name="baby" id="vo"}
-            <div class="col-md-6 baby">
+            <div class="col-md-6">
                 <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-                    <img src="__vidurl__/{$vo.imgurl}" alt="" width="100%"/>   
-                    <h3>{$vo.title}</h3>
-                    <p>{$vo.intro}</p> 
+                      <div class="thumbnail">
+                          <img src="__vidurl__/{$vo.imgurl}" alt=""/>   
+                          <div class="caption">
+                            <h3>{$vo.title}</h3>
+                            <p>{$vo.intro}</p> 
+                          </div>
+                      </div>
                 </a>       
             </div>
             {/volist}
@@ -39,16 +43,17 @@
             </div>
                 {volist name="new" id="vo"}
                 <div class="col-lg-12 marginbot30">
-                    <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-                    <div class="col-md-3">
-		                <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
-		            </div>
-			        <div class="col-md-9 news">
-				        <div>
-                            <h3>{$vo.title}</h3>
-                            <p>{$vo.intro}</p>
-				        </div>
-			        </div>
+                    <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.title}">
+                         <div class="thumbnail-2">
+                            <div class="col-md-3 imgcap">
+		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
+		                    </div>
+			                <div class="col-md-9 caption">				         
+                                    <h3>{$vo.title}</h3>
+                                    <p>{$vo.intro}</p>
+                                <p>{$vo.createDate}</p>
+			                </div>
+                         </div> 
                     </a>
                 </div>
                 {/volist}
@@ -70,11 +75,15 @@
         <!-- Service Blcoks -->
         
             {volist name="video" id="vo"}  
-            <div class="col-md-3 baby">
-                <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-                    <img class="img-responsive" src="__vidurl__/{$vo.imgurl}" alt="">   
-                    <h4>{$vo.title}</h4>
-                    <p>{$vo.intro}</p>    
+            <div class="col-md-3">
+                <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}"  title="{$vo.title}">
+                     <div class="thumbnail">
+                            <img class="img-responsive" src="__vidurl__/{$vo.imgurl}" alt="{$vo.title}">   
+                        <div class="caption1">
+                            <h4>{$vo.title}</h4>
+                            <p>{$vo.intro}</p>  
+                        </div> 
+                     </div>  
                 </a>    
             </div>                   
             {/volist}
@@ -96,10 +105,14 @@
         <!-- Service Blcoks -->
         
                 {volist name="product" id="vo"}
-                <div class="col-md-3 product">
-                    <a href="{$vo.link}">
-                        <img src="__imgurl__/{$vo.imgurl}" alt="">   
-                        <h4>{$vo.title}</h4>  
+                <div class="col-md-3">
+                    <a href="{$vo.link}" title="{$vo.title}">
+                        <div class="thumbnail-1">
+                            <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}">  
+                            <div class="caption">
+                                <h4>{$vo.title}</h4>  
+                            </div>
+                        </div>
                     </a>
                 </div>
             {/volist}

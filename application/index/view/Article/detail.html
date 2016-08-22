@@ -2,16 +2,15 @@
 {block name="title"}{$category.cname}|上海麦晨儿童用品有限公司{/block}
 {block name="content"}
 <div class="container bgcolor">
-<section class="callaction">
+
 		<div class="row">
-            <div class="col-md-12 pading30">
-                    
-            <div class="page-header">    
-                <h3 class="marginleft20">{$list.title}</h3>       
-            </div>
-            <div class="pading30" id="content">
-                    {$list.content}
+            <div class="col-md-12">    
+                <div class="page-header">    
+                    <h2>{$list.title}  <small>{$list.createDate}</small></h2>       
+                </div>
+                <div class="col-md-12" id="content">
+                        {$list.content}
                 </div>
             </div>
 		</div>
-</section></div>{/block}
+</div>{/block}

@@ -10,15 +10,19 @@
             </div>
             <div class="col-lg-12">
                 {volist name="list" id="vo"}
-                	<div class="col-md-3">
-                        <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
+                {eq name="$category['cid']" value="32"}
+                <div class="col-md-6 marginbot30">
+                    {else /}
+                	<div class="col-md-3 marginbot30">
+                        {/eq}
+                        <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.title}">
 					        <div class="thumbnail">
-						        <img alt="" src="__vidurl__/{$vo.imgurl}" width="100%"/>
-						        <div class="caption">
-							        <p><strong>
+						        <img alt="{$vo.title}" src="__vidurl__/{$vo.imgurl}"/>
+						        <div class="caption1">
+							        <h4>
 								        {$vo.title}
-							        </strong></p>
-							        <p class="intro">
+							        </h4>
+							        <p>
 								       {$vo.intro}
 							        </p>
 						        </div>

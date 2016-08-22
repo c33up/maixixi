@@ -14,15 +14,16 @@
                 {volist name="newList" id="vo"}
                 <div class="col-lg-12 marginbot30">
                     <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-                    <div class="col-md-3">
-		                <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
-		            </div>
-			        <div class="col-md-9 news">
-				        <div>
-                            <h3>{$vo.title}</h3>
-                            <p>{$vo.intro}</p>
-				        </div>
-			        </div>
+                         <div class="thumbnail-2">
+                            <div class="col-md-3 imgcap">
+		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
+		                    </div>
+			                <div class="col-md-9 caption">				         
+                                    <h3>{$vo.title}</h3>
+                                    <p>{$vo.intro}</p>
+                                <p>{$vo.createDate}</p>
+			                </div>
+                         </div> 
                     </a>
                 </div>
                 {/volist}
@@ -40,15 +41,16 @@
                 {volist name="zsList" id="vo"}
                 <div class="col-lg-12 marginbot30">
                     <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-                    <div class="col-md-3">
-		                <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
-		            </div>
-			        <div class="col-md-9 news">
-				        <div>
-                            <h3>{$vo.title}</h3>
-                            <p>{$vo.intro}</p>
-				        </div>
-			        </div>
+                        <div class="thumbnail-2">
+                            <div class="col-md-3 imgcap">
+		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
+		                    </div>
+			                <div class="col-md-9 caption">				         
+                                    <h3>{$vo.title}</h3>
+                                    <p>{$vo.intro}</p>
+                                <p>{$vo.createDate}</p>
+			                </div>
+                         </div> 
                     </a>
                 </div>
                 {/volist}
@@ -66,15 +68,16 @@
                 {volist name="homeboyList" id="vo"}
                 <div class="col-lg-12 marginbot30">
                     <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-                    <div class="col-md-3">
-		                <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
-		            </div>
-			        <div class="col-md-9 news">
-				        <div>
-                            <h3>{$vo.title}</h3>
-                            <p>{$vo.intro}</p>
-				        </div>
-			        </div>
+                        <div class="thumbnail-2">
+                            <div class="col-md-3 imgcap">
+		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
+		                    </div>
+			                <div class="col-md-9 caption">				         
+                                    <h3>{$vo.title}</h3>
+                                    <p>{$vo.intro}</p>
+                                <p>{$vo.createDate}</p>
+			                </div>
+                         </div> 
                     </a>
                 </div>
                 {/volist}
@@ -94,11 +97,11 @@
                         <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
 					        <div class="thumbnail">
 						        <img alt="" src="__vidurl__/{$vo.imgurl}" width="100%"/>
-						        <div class="caption">
-							        <p><strong>
+						        <div class="caption1">
+							        <h4>
 								        {$vo.title}
-							        </strong></p>
-							        <p class="intro">
+							        </h4>
+							        <p>
 								       {$vo.intro}
 							        </p>
 						        </div>
@@ -120,12 +123,12 @@
                 {volist name="productList" id="vo"}
                <div class="col-md-3">
                         <a href="{$vo.link}">
-					        <div class="thumbnail">
+					        <div class="thumbnail-1">
 						        <img alt="" src="__imgurl__/{$vo.imgurl}" width="100%"/>
 						        <div class="caption">
-							        <p><strong>
+							        <h4>
 								        {$vo.title}
-							        </strong></p>
+							        </h4>
 						        </div>
 					        </div>
                         </a> 
@@ -145,12 +148,12 @@
                 {volist name="dpList" id="vo"}
                 <div class="col-md-3">
                         <a href="{$vo.link}">
-					        <div class="thumbnail">
+					        <div class="thumbnail-1">
 						        <img alt="" src="__imgurl__/{$vo.imgurl}" width="100%"/>
 						        <div class="caption">
-							        <p><strong>
+							        <h4>
 								        {$vo.title}
-							        </strong></p>
+							        </h4>
 						        </div>
 					        </div>
                         </a> 
