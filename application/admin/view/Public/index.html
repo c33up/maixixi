@@ -45,17 +45,18 @@
         <!--start sidebar menu-->
 		<div id="sidebar">
 			<ul>
+          
                 {volist name="short" id="vo"}
-                
                 <li 
+                {notempty name="$category"}
                 {eq name="$vo['cid']" value="$category['cid']"}
                 class=active
-                    {/eq}>
+                    {/eq}{/notempty}>
 					<a href="{:url($vo['link'],['cid'=>$vo['cid']])}"><i class="icon {$vo['icon']}"></i><span>{$vo.cname}</span></a>
 				</li>
 
                 {/volist}
-				
+			
 				<li class="submenu">
 					<a href="#"><i class="icon icon-file"></i> <span>其他操作</span></a>
 					<ul>

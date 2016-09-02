@@ -7,10 +7,7 @@ use think\Db;
 
 class Intro extends Base
 {
-    public function  _initialize(){
-       $short=showShort(); 
-       $this->assign('short', $short); 
-    }
+
     public function index()
     {
 

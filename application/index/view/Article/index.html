@@ -3,31 +3,36 @@
 {block name="content"}
 <div class="container bgcolor">
 	<div class="row">
-       <div class="col-md-12">
-            <div class="page-header">                
-                <h3>{$category.cname}</h3>              
-            </div>       		 
+       <div class="col-md-12 nopading">
+           <div class="col-md-12">
+                <div class="page-header">                
+                    <h3>{$category.cname}</h3>              
+                </div>  
+           </div>      		 
             {volist name="list" id="vo"} 
             <div class="col-md-12 marginbot40">
             <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
-		      <div class="thumbnail-2">
-                <div class="col-md-3 imgcap">
-		            <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.intro}"/>
-		        </div>
-		         <div class="col-md-9 caption">		
-			      
-                       <h3> {$vo.title}</h3>
-                       <p>{$vo.intro}</p>
-                     <p>{$vo.createDate}</p>
-			       </div>
+		        <div class="thumbnail-2">
+                    <div class="col-md-3">
+		                <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.intro}"/>
+		            </div>
+		             <div class="col-md-9">		
+			            <div class="caption">		
+                            <h3> {$vo.title}</h3>
+                            <p>{$vo.intro}</p>
+                            <p>{$vo.createDate}</p>
+			            </div>
+                     </div>
                 </div>
             </a>
 		    </div>
             {/volist}
-            <div class="col-md-12 topline">        
-                <div class="pull-right">
-                    {$list->render()}
-                </div>                                       
+            <div class="col-md-12">
+                <div class="topline">        
+                    <div class="pull-right">
+                        {$list->render()}
+                    </div> 
+                </div>                                      
             </div>
         </div>	
 	</div></div>{/block}

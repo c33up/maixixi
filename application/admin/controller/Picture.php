@@ -7,10 +7,7 @@ use org\Upload;
 
 class Picture extends Base
 {
-    public function  _initialize(){
-       $short=showShort(); 
-       $this->assign('short', $short); 
-    }
+ 
     public function index()
     {
         $cid=input('cid');

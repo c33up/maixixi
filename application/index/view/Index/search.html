@@ -4,12 +4,14 @@
 <div class="container bgcolor">
 	<div class="row">
         {neq name="newcoun" value="0"}
-       <div class="col-lg-12">
-            <div class="page-header">                
-                <ul class="list-unstyled">
-                    <li class="pull-right"><a href="{:url('article/index',['cid'=>$newcate['cid']])}">more...</a></li>
-                    <li>{$newcate.cname}</li>              
-                </ul>
+       <div class="col-lg-12 nopading">
+           <div class="col-lg-12">
+                <div class="page-header">                
+                    <ul class="list-unstyled">
+                        <li class="pull-right"><a href="{:url('article/index',['cid'=>$newcate['cid']])}">更多<span class="glyphicon glyphicon-menu-right"></span></a></li>
+                        <li>{$newcate.cname}</li>              
+                    </ul>
+                </div>
             </div>
                 {volist name="newList" id="vo"}
                 <div class="col-lg-12 marginbot30">
@@ -18,10 +20,12 @@
                             <div class="col-md-3 imgcap">
 		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
 		                    </div>
-			                <div class="col-md-9 caption">				         
+			                <div class="col-md-9">	
+                                <div class="caption">		         
                                     <h3>{$vo.title}</h3>
                                     <p>{$vo.intro}</p>
-                                <p>{$vo.createDate}</p>
+                                    <p>{$vo.createDate}</p>
+                                </div>	
 			                </div>
                          </div> 
                     </a>
@@ -31,13 +35,16 @@
         {/neq}
 
         {neq name="zscoun" value="0"}
-        <div class="col-lg-12">
-            <div class="page-header">                
-                <ul class="list-unstyled">
-                    <li class="pull-right"><a href="{:url('article/index',['cid'=>$zscate['cid']])}">more...</a></li>
-                    <li>{$zscate.cname}</li>              
-                </ul>
+        <div class="col-lg-12 nopading">
+            <div class="col-lg-12">
+                <div class="page-header">                
+                    <ul class="list-unstyled">
+                        <li class="pull-right"><a href="{:url('article/index',['cid'=>$newcate['cid']])}">更多<span class="glyphicon glyphicon-menu-right"></span></a></li>
+                        <li>{$zscate.cname}</li>              
+                    </ul>
+                </div>
             </div>
+ 
                 {volist name="zsList" id="vo"}
                 <div class="col-lg-12 marginbot30">
                     <a href="{:url('article/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}">
@@ -45,10 +52,12 @@
                             <div class="col-md-3 imgcap">
 		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
 		                    </div>
-			                <div class="col-md-9 caption">				         
+			                <div class="col-md-9">	
+                                <div class="caption">		         
                                     <h3>{$vo.title}</h3>
                                     <p>{$vo.intro}</p>
-                                <p>{$vo.createDate}</p>
+                                    <p>{$vo.createDate}</p>
+                                </div>	
 			                </div>
                          </div> 
                     </a>
@@ -58,12 +67,14 @@
         {/neq}
 
         {neq name="homecoun" value="0"}
-         <div class="col-lg-12">
-            <div class="page-header">                
-                <ul class="list-unstyled">
-                    <li class="pull-right"><a href="{:url('article/index',['cid'=>$homecate['cid']])}">more...</a></li>
-                    <li>{$homecate.cname}</li>              
-                </ul>
+         <div class="col-lg-12 nopading">
+             <div class="col-lg-12">
+                <div class="page-header">                
+                    <ul class="list-unstyled">
+                        <li class="pull-right"><a href="{:url('article/index',['cid'=>$homecate['cid']])}">更多<span class="glyphicon glyphicon-menu-right"></span></a></li>
+                        <li>{$homecate.cname}</li>              
+                    </ul>
+                </div>
             </div>
                 {volist name="homeboyList" id="vo"}
                 <div class="col-lg-12 marginbot30">
@@ -72,10 +83,12 @@
                             <div class="col-md-3 imgcap">
 		                        <img src="__imgurl__/{$vo.imgurl}" alt="{$vo.title}"/>
 		                    </div>
-			                <div class="col-md-9 caption">				         
+			               <div class="col-md-9">	
+                                <div class="caption">		         
                                     <h3>{$vo.title}</h3>
                                     <p>{$vo.intro}</p>
-                                <p>{$vo.createDate}</p>
+                                    <p>{$vo.createDate}</p>
+                                </div>	
 			                </div>
                          </div> 
                     </a>
@@ -85,12 +98,14 @@
         {/neq}
 
         {neq name="vidcoun" value="0"}
-         <div class="col-lg-12">
-            <div class="page-header">                
-                <ul class="list-unstyled">
-                    <li class="pull-right"><a href="{:url('video/index',['cid'=>$vidcate['cid']])}">more...</a></li>
-                    <li>{$vidcate.cname}</li>              
-                </ul>
+         <div class="col-lg-12 nopading">
+             <div class="col-lg-12">
+                <div class="page-header">                
+                    <ul class="list-unstyled">
+                        <li class="pull-right"><a href="{:url('video/index',['cid'=>$vidcate['cid']])}">更多<span class="glyphicon glyphicon-menu-right"></span></a></li>
+                        <li>{$vidcate.cname}</li>              
+                    </ul>
+                </div>
             </div>
                 {volist name="vidList" id="vo"}
                     <div class="col-md-3">
@@ -113,13 +128,15 @@
         {/neq}
 
         {neq name="productcoun" value="0"}
-         <div class="col-lg-12">
-            <div class="page-header">                
-                <ul class="list-unstyled">
-                    <li class="pull-right"><a href="{:url('picture/index',['cid'=>$productcate['cid']])}">more...</a></li>
-                    <li>{$productcate.cname}</li>              
-                </ul>
-            </div>
+         <div class="col-lg-12 nopading">
+             <div class="col-lg-12">
+                <div class="page-header">                
+                    <ul class="list-unstyled">
+                        <li class="pull-right"><a href="{:url('picture/index',['cid'=>$productcate['cid']])}">更多<span class="glyphicon glyphicon-menu-right"></span></a></li>
+                        <li>{$productcate.cname}</li>              
+                    </ul>
+                </div>
+             </div>
                 {volist name="productList" id="vo"}
                <div class="col-md-3">
                         <a href="{$vo.link}">
@@ -138,10 +155,10 @@
         {/neq}
 
         {neq name="dpcoun" value="0"}
-         <div class="col-lg-12">
+         <div class="col-lg-12 nopading">
             <div class="page-header">                
                 <ul class="list-unstyled">
-                    <li class="pull-right"><a href="{:url('picture/index',['cid'=>$dpcate['cid']])}">more...</a></li>
+                    <li class="pull-right"><a href="{:url('picture/index',['cid'=>$dpcate['cid']])}">更多<span class="glyphicon glyphicon-menu-right"></span></a></li>
                     <li>{$dpcate.cname}</li>              
                 </ul>
             </div>

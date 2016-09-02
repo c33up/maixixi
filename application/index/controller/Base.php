@@ -7,6 +7,8 @@ class Base extends Controller
         header("Content-type: text/html; charset=utf-8");
         $pic=showPic('21');
         $this->assign('pic',$pic);
+        $ct=showContact();
+        $this->assign('ct',$ct);
     }
 
 }

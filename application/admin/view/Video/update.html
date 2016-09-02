@@ -152,13 +152,13 @@
 </div>
 
 {/block}
-      {block name="js"}
-         {js href="__editor__/ueditor.config.js"/}
-         {js href="__editor__/ueditor.all.js"/}
-        <!-- 实例化编辑器 -->
-        <script type="text/javascript">
-            var ue = UE.getEditor('editor',{
-                initialFrameHeight:400
-            });
-        </script>
-      {/block}
+{block name="js"}
+    {js href="__editor__/ueditor.config.js"/}
+    {js href="__editor__/ueditor.all.js"/}
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor',{
+            initialFrameHeight:400
+        });
+    </script>
+{/block}

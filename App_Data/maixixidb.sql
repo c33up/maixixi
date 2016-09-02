@@ -6,6 +6,11 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) DEFAULT NULL,
   `password` varchar(32) DEFAULT NULL,
+  `last_login_ip` varchar(100) DEFAULT NULL,
+  `last_login_time` int(11) DEFAULT NULL,
+  `expire_time` int(11) DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`) USING BTREE,
   KEY `password` (`password`) USING BTREE
@@ -60,7 +65,6 @@ INSERT INTO `category` VALUES ('23','picture/index','icon-th'  ,'店铺形象');
 INSERT INTO `category` VALUES ('31','video/index'  ,'icon-th'  ,'视频集锦');
 INSERT INTO `category` VALUES ('32','video/index'  ,'icon-th'  ,'宝贝麦西西');
 INSERT INTO `category` VALUES ('40','contact/index'  ,'icon-th'  ,'联系我们');
-
 
 -- ----------------------------
 -- Table structure for `intro`

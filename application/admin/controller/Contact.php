@@ -7,12 +7,7 @@ use org\Upload;
 
 class Contact extends Base
 {
-    public function  _initialize(){
-        $category=Category::find('40');
-       $short=showShort(); 
-       $this->assign('short', $short); 
-        $this->assign('category', $category); 
-    }
+
     public function index()
     {
         $list=ct::select();
@@ -21,11 +16,15 @@ class Contact extends Base
         $this->assign('list', $list);
         $this->assign('count', $count);
         $this->assign('empty','<tr><td><h1 style="text-align: center;">暂时没有数据</h1></td></tr>');
+        $category=Category::find('40');
+        $this->assign('category', $category); 
         return $this->fetch();
     }
 
     public function add()
     {
+        $category=Category::find('40');
+        $this->assign('category', $category); 
        if(request()->isPost()){
             $data = input('post.');
             $data['imgurl'] = $this->upload();
@@ -47,6 +46,8 @@ class Contact extends Base
 
      public function update()
     {
+        $category=Category::find('40');
+        $this->assign('category', $category); 
        if(request()->isPost()){
             $data = input('post.');
             $data['imgurl'] = $this->upload();

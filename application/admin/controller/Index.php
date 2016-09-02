@@ -8,17 +8,14 @@ use think\Db;
 
 class Index extends Base
 {
-    public function  _initialize(){
-       $category=Category::find('0');
-       $short=showShort(); 
-       $this->assign('short', $short); 
-       $this->assign('category', $category); 
-    }
+
     public function index()
     {
-       
+
         $list=Message::order('id desc')->limit(10)->select();  
         $this->assign('list', $list); 
+        $category=Category::find('0');
+        $this->assign('category', $category); 
         return $this->fetch();
     }
 
@@ -33,6 +30,8 @@ class Index extends Base
         }
         
         $this->assign('list', $list);
+        $category=Category::find('0');
+        $this->assign('category', $category); 
         return $this->fetch();
     }
 
@@ -40,6 +39,8 @@ class Index extends Base
     {
         $list=Message::order('id desc')->paginate(6);  
         $this->assign('list', $list); 
+        $category=Category::find('0');
+        $this->assign('category', $category); 
         return $this->fetch();
     }
 }

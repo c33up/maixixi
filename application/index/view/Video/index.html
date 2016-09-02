@@ -4,18 +4,17 @@
 
 <div class="container bgcolor">	
     <div class="row">
-        <div class="col-lg-12">
-		    <div class="page-header">                
-                 <h3>{$category.cname}</h3>
-            </div>
+        <div class="col-lg-12 nopading">
             <div class="col-lg-12">
+		        <div class="page-header">                
+                     <h3>{$category.cname}</h3>
+                </div>
+            </div>
+            <div class="col-lg-12 nopading">
                 {volist name="list" id="vo"}
                 {eq name="$category['cid']" value="32"}
                 <div class="col-md-6 marginbot30">
-                    {else /}
-                	<div class="col-md-3 marginbot30">
-                        {/eq}
-                        <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.title}">
+                    <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.title}">
 					        <div class="thumbnail">
 						        <img alt="{$vo.title}" src="__vidurl__/{$vo.imgurl}"/>
 						        <div class="caption1">
@@ -28,7 +27,33 @@
 						        </div>
 					        </div>
                         </a> 
-				    </div>
+				</div>
+                {else /}
+                <div class="col-md-3 marginbot30">
+                <div class="panel panel-default panel-card">
+                    <div class="panel-heading">
+                        <img src="__vidurl__/{$vo.imgurl}" alt="{$vo.title}"/>
+                       
+                    </div>
+   
+                    <div class="panel-body text-center">
+                        <h5 class="panel-header">
+                            <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.title}">{$vo.title}</a>
+                        </h5>
+                       
+                    </div>
+                    <div class="panel-thumbnails">
+                     <hr/>
+                            <p>
+                                <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.intro}">{$vo.intro}</a>
+                            </p>  
+                      
+                    </div>
+                </div>    
+            </div>   
+
+                {/eq}
+
                 {/volist}
             </div>
             <div class="pull-right">

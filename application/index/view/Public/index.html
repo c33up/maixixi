@@ -14,6 +14,7 @@
         <link href="__home__/css/jcarousel.css" rel="stylesheet" />
         <link href="__home__/css/flexslider.css" rel="stylesheet" />
         <link href="__home__/css/style.css" rel="stylesheet" />
+        <link href="__home__/css/eden.css" rel="stylesheet" />
         {block name="css"}{/block}
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -88,17 +89,29 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="copyright">
+                        {if condition="$ct['address'] neq ''"}
                         <p>
-                        地址：上海市闵行区秀文路898号5号楼509         
+                            地址：{$ct.address}         
                         </p>
+                        {/if}
+
+                        {if condition="$ct['telphone'] neq ''"}
                         <p>
-                            联系电话：021-34632089             
+                            联系电话：{$ct.telphone}         
                         </p>
+                        {/if}
+                         {if condition="$ct['email'] neq ''"}
                         <p>
-                            邮箱：maichen2013@sina.com
+                            联系电话：{$ct.email}         
                         </p>
+                        {/if}
+                        
+                        <img src="__home__/img/foot-pick.jpg" alt="麦西西"/>
+                        <p>
+							沪ICP备13025014号
+						</p>
 						<p>
-							上海麦晨儿童用品有限公司 &copy; 2016.Copyright
+							上海麦晨儿童用品有限公司 &copy; 版权所有
 						</p>
 					</div>
 				</div>

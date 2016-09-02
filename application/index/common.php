@@ -3,6 +3,7 @@ use app\index\model\Category;
 use app\index\model\Article;
 use app\index\model\Video;
 use app\index\model\Picture;
+use app\index\model\Contact;
 
 function showPic($cid){
     $where['cid']=$cid;
@@ -45,6 +46,12 @@ function showShop(){
     $where['cid']='23';
     $category=Category::find($where);
     $list=$category->picture()->where($where)->order('id desc')->select();
+    return $list;
+}
+
+function showContact(){
+    $where['id']='1';
+    $list=Contact::where($where)->find();
     return $list;
 }
 

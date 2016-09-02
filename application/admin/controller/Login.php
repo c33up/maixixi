@@ -32,9 +32,16 @@ class Login extends Controller
             );
         if ($user = User::where($where_query)->find()) {
             //注册session
-            session('uid',$user->id,'think');
-            session('username',$user->username,'think');
-            session('password',$user->password,'think');
+            session('uid',$user['id'],'think');
+            session('username',$user['username'],'think');
+            session('password',$user['password'],'think');
+
+              //更新最后请求IP及时间
+            $request = request();
+            $ip = $request->ip();
+            $time = time();
+            $expire_time = time()+config('auth_expired_time');
+            $user->where($where_query)->update(['last_login_ip' => $ip, 'last_login_time' => $time,'expire_time'=>$expire_time]);
 
             return $this->success('登录成功', 'index/index');
         } else {

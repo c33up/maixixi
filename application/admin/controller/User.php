@@ -6,12 +6,7 @@ use think\Validate;
 
 class User extends Base
 {
-    public function  _initialize(){
-       $category['cid']='-1';
-       $short=showShort(); 
-       $this->assign('short', $short); 
-       $this->assign('category', $category); 
-    }
+
     public function index()
     {
         $list = AdminUser::order('id','asc')->select();
@@ -40,8 +35,10 @@ class User extends Base
                 if($result){
                          $this->error('用户已存在');
                 }else{
-                        $userdata['username'] = input('post.username');
-                        $userdata['password'] = md5(input('post.password'));
+                        $userdata['username'] = $data['username'];
+                        $userdata['password'] = md5($data['password']);
+                        $userdata['create_time'] = time();
+                        $userdata['update_time'] = time();
                         //dump($data);
                         $status = AdminUser::insert($userdata);
                         if($status){
