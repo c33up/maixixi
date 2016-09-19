@@ -23,6 +23,7 @@ class Video extends Base
         $cid=$data['cid'];
         $id=$data['id'];
         $category=getCategory($cid);
+        $category->video()->where('id',$id)->setInc('num',1);  
         $this->assign('category',$category);
         $list=getVidDetail($id);
         $this->assign('list',$list);

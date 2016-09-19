@@ -28,7 +28,9 @@ class Article extends Base
         $this->assign('category',$category);
         $list=getArtDetail($id);
         //dump($list);
-
+        //M('article')->where($where)->setInc('num',1);  
+         
+        $category->article()->where('id',$id)->setInc('num',1);  
         $this->assign('list',$list);
         return $this->fetch();
     }
