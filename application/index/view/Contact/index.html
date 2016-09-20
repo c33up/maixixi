@@ -41,7 +41,7 @@
 					    {if condition="$list['imgurl'] neq ''"}
                         <div class="botlinepad10 twopic"> 
                             <a class="gal" href="__imgurl__/{$list['imgurl']}">
-                                <img src="__imgurl__/{$list['imgurl']}" alt="" width="100%"/>
+                                <img src="__imgurl__/{$list['imgurl']}" alt=""/>
                             </a>
                         </div>
                         {/if}       
@@ -50,7 +50,7 @@
                 {volist name="twopic" id="vo"}
                   <div class="col-md-6 twopic">
                     <a class="gal" href="__imgurl__/{$vo.imgurl}">
-                        <img src="__imgurl__/{$vo.imgurl}" alt="" width="100%"/>
+                        <img src="__imgurl__/{$vo.imgurl}" alt=""/>
 				    </a>
                   </div>
                 {/volist}
@@ -66,20 +66,20 @@
                     <h4>我要留言</h4>
                     <p>电子邮件地址不会被公开。 必填项已用 <strong>*</strong> 标注 </p>
                  
-					<form action="{:url('contact/addmeg')}" method="post">
+					<form action="{:url('contact/addmeg')}" method="post" onsubmit="return cheakform();">
 						<div class="form-group">
 							<label for="name">您的昵称 Your NickName<strong>*</strong></label>
-							<input type="text" class="form-control" name="NickName" placeholder="您的昵称">
+							<input type="text" class="form-control" id="NickName" name="NickName" placeholder="您的昵称">
 							
 						</div>
 						<div class="form-group">
 							<label for="name">联系电话 Tel  <strong>*</strong></label>
-							<input type="tel" class="form-control" name="Tel" placeholder="联系电话">
+							<input type="tel" class="form-control" name="Tel" id="Tel" placeholder="联系电话">
 							
 						</div>
 						<div class="form-group">
 							<label for="name">电子邮件 Email  <strong>*</strong> </label>
-							<input type="email" class="form-control" name="Email" placeholder="Email">
+							<input type="email" class="form-control" name="Email" id="Email" placeholder="Email">
 							
 						</div>
 						<div class="form-group">
@@ -97,6 +97,36 @@
 {block name="js"}
  <script src="__home__/js/touchTouch.jquery.js"></script>
  <script src="__home__/js/jquery.ui.totop.js"></script>
+<script>
+    function cheakform()
+    {
+        var username = document.getElementById("NickName");
+        var tel = document.getElementById("Tel");
+        var email = document.getElementById("Email");
+        if (username.value.length == 0)
+        {
+            alert("请输入您的昵称");
+            username.focus();
+            return false;
+        }
+
+        if (tel.value.length == 0)
+        {
+            alert("请输入您的联系电话");
+            tel.focus();
+            return false;
+        }
+
+        if (email.value.length == 0)
+        {
+            alert("请输入您的电子邮箱");
+            email.focus();
+            return false;
+        }
+
+        return true;
+    }
+</script>
 <script>
         $(document).ready(function(){
           $().UItoTop({ easingType: 'easeOutQuart' });
