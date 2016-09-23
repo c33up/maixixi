@@ -1,7 +1,7 @@
 ﻿-- ----------------------------
 -- Table structure for `user`
 -- ----------------------------
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) DEFAULT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+INSERT INTO `user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3'，NULL,NULL,NULL,NULL,NULL);
 
 -- ----------------------------
 -- Table structure for `article`
@@ -64,7 +64,7 @@ INSERT INTO `category` VALUES ('22','picture/index','icon-th'  ,'二维码');
 INSERT INTO `category` VALUES ('23','picture/index','icon-th'  ,'店铺形象');
 INSERT INTO `category` VALUES ('31','video/index'  ,'icon-th'  ,'视频集锦');
 INSERT INTO `category` VALUES ('32','video/index'  ,'icon-th'  ,'宝贝麦西西');
-INSERT INTO `category` VALUES ('40','contact/index'  ,'icon-th'  ,'联系我们');
+INSERT INTO `category` VALUES ('40','contact/index','icon-th'  ,'联系我们');
 
 -- ----------------------------
 -- Table structure for `intro`
