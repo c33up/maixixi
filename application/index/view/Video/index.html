@@ -7,7 +7,7 @@
         <div class="col-lg-12 nopading">
             <div class="col-lg-12">
 		        <div class="page-header">                
-                     <h3>{$category.cname}</h3>
+                     <h4>{$category.cname}</h4>
                 </div>
             </div>
             <div class="col-lg-12 nopading">
@@ -29,8 +29,21 @@
                         </a> 
 				</div>
                 {else /}
-                <div class="col-md-3 marginbot30">
-                <div class="panel panel-default panel-card">
+                <div class="col-md-3">
+                   <!--     
+                    <div class="banner-left1-grid">
+				    <img src="__vidurl__/{$vo.imgurl}" alt="{$vo.title}" class="img-responsive" />
+				    <div class="banner-info">			
+					    <h5>
+							    <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.title}">{$vo.title}</a>
+					    </h5>
+					    <div class="event-meta">
+						    <p> <a href="{:url('video/detail',['cid'=>$vo['cid'],'id'=>$vo['id']])}" title="{$vo.intro}">{$vo.intro}</a></p>
+					    </div>
+				    </div>
+			    </div>
+                    -->
+                    <div class="panel panel-default panel-card">
                     <div class="panel-heading">
                         <img src="__vidurl__/{$vo.imgurl}" alt="{$vo.title}"/>
                        
@@ -50,6 +63,7 @@
                       
                     </div>
                 </div>    
+                
             </div>   
 
                 {/eq}

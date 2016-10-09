@@ -227,8 +227,4 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
-
-    //自定义配置
-    'uploader_dir' =>  './uploads/images/',
-    'uploadvid_dir' =>  './uploads/videos/',
 ];
